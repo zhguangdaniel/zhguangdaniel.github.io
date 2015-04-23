@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do for my dream !]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://zhguangdaniel.github.io/"/>
-  <updated>2015-04-17T10:17:14.883Z</updated>
+  <updated>2015-04-18T04:18:00.897Z</updated>
   <id>http://zhguangdaniel.github.io/</id>
   
   <author>
@@ -16,10 +16,10 @@
   
   <entry>
     <title><![CDATA[Java系列笔记(1) - Java 类加载与初始化]]></title>
-    <link href="http://zhguangdaniel.github.io/2015/04/17/java-1-classloader/"/>
-    <id>http://zhguangdaniel.github.io/2015/04/17/java-1-classloader/</id>
-    <published>2015-04-17T10:17:14.883Z</published>
-    <updated>2015-04-17T10:17:14.883Z</updated>
+    <link href="http://zhguangdaniel.github.io/2015/04/18/java-1-classloader/"/>
+    <id>http://zhguangdaniel.github.io/2015/04/18/java-1-classloader/</id>
+    <published>2015-04-18T04:18:00.897Z</published>
+    <updated>2015-04-18T04:18:00.897Z</updated>
     <content type="html"><![CDATA[<h1 id="类加载器">类加载器</h1><p>在了解Java的机制之前，需要先了解类在JVM（Java虚拟机）中是如何加载的，这对后面理解java其它机制将有重要作用。</p>
 <p>每个类编译后产生一个Class对象，存储在.class文件中，JVM使用类加载器（Class Loader）来加载类的字节码文件（.class），类加载器实质上是一条类加载器链，一般的，我们只会用到一个原生的类加载器，它只加载Java API等可信类，通常只是在本地磁盘中加载，这些类一般就够我们使用了。如果我们需要从远程网络或数据库中下载.class字节码文件，那就需要我们来挂 载额外的类加载器。</p>
 <p>一般来说，类加载器是按照树形的层次结构组织的，每个加载器都有一个父类加载器。另外，每个类加载器都支持代理模式，即可以自己完成Java类的加载工作，也可以代理给其它类加载器。</p>
@@ -213,18 +213,31 @@ Initializing
         System.<span class="keyword">out</span>.println(A.<span class="keyword">value</span>);<span class="comment">// 输出100        </span>
     }
 }
-</code></pre><p>在该例子中，虽然通过A来引用了value，但value是在父类B中声明的，所以只会初始化B，而不会引起A的初始化。<br>说明<br>笔者在开发过程中发现自己基础太薄弱，读书时除了系统学习了一下Java的基础语法和用法、一点简单的数据结构和设计模式之外，再无深入系统的学习，而工作中的学习也是东晃一枪西晃一枪，不够扎实和系统。想到一个学习方法：学到的东西能够系统的表达出来，才说明你学到手了；于是，笔者决定边学边写，将学到的东西以博客的形式表达出来。<br>本文档会因学习的深入或错误的订正而持续更新。<br>《Java系列笔记》是本人对Java的应用和学习过程中的笔记，按知识点分章节，写这一系列笔记的目的是学习，由于笔者是边学编写的，水平有限，文中必定有疏漏之处，欢迎斧正。<br>文中多有参考前辈的书籍和博客之处，原则上不会原文引用，而是加入自己的理解改造之，如果有引用，必会注明出处，如有疑问，请联系：daniel.zhguang@gmail.com<br>更新记录</p>
+</code></pre><p>在该例子中，虽然通过A来引用了value，但value是在父类B中声明的，所以只会初始化B，而不会引起A的初始化。</p>
+<p>说明</p>
+<p>笔者在开发过程中发现自己基础太薄弱，读书时除了系统学习了一下Java的基础语法和用法、一点简单的数据结构和设计模式之外，再无深入系统的学习，而工作中的学习也是东晃一枪西晃一枪，不够扎实和系统。想到一个学习方法：学到的东西能够系统的表达出来，才说明你学到手了；于是，笔者决定边学边写，将学到的东西以博客的形式表达出来。</p>
+<p>本文档会因学习的深入或错误的订正而持续更新。</p>
+<p>《Java系列笔记》是本人对Java的应用和学习过程中的笔记，按知识点分章节，写这一系列笔记的目的是学习，由于笔者是边学编写的，水平有限，文中必定有疏漏之处，欢迎斧正。</p>
+<p>文中多有参考前辈的书籍和博客之处，原则上不会原文引用，而是加入自己的理解改造之，如果有引用，必会注明出处，如有疑问，请联系：daniel.zhguang@gmail.com</p>
+<p>更新记录</p>
 <ul>
-<li>2013年6月25日：发表；</li>
-<li>2013年6月26日：加入@阿春阿晓的评论：引起初始化的6种场景；</li>
-<li>2013年6月28日：加入链接和初始化的内容，加入示例6</li>
+<li><p>2013年6月25日：发表；</p>
+</li>
+<li><p>2013年6月26日：加入@阿春阿晓的评论：引起初始化的6种场景；</p>
+</li>
+<li><p>2013年6月28日：加入链接和初始化的内容，加入示例6</p>
+</li>
 </ul>
 <p>本节参考资料</p>
 <ul>
-<li>JAVA编程思想，第14章</li>
-<li>Java深度历险</li>
-<li>Java中static块的本质：<a href="http://www.java3z.com/cwbwebhome/article/article8/81101.html?id=2497" target="_blank" rel="external">http://www.java3z.com/cwbwebhome/article/article8/81101.html?id=2497</a></li>
-<li>java类的装载(Loading)、链接(Linking)和初始化(Initialization)：<a href="http://blog.csdn.net/biaobiaoqi/article/details/6909141" target="_blank" rel="external">http://blog.csdn.net/biaobiaoqi/article/details/6909141</a></li>
+<li><p>JAVA编程思想，第14章</p>
+</li>
+<li><p>Java深度历险</p>
+</li>
+<li><p>Java中static块的本质：<a href="http://www.java3z.com/cwbwebhome/article/article8/81101.html?id=2497" target="_blank" rel="external">http://www.java3z.com/cwbwebhome/article/article8/81101.html?id=2497</a></p>
+</li>
+<li><p>java类的装载(Loading)、链接(Linking)和初始化(Initialization)：<a href="http://blog.csdn.net/biaobiaoqi/article/details/6909141" target="_blank" rel="external">http://blog.csdn.net/biaobiaoqi/article/details/6909141</a></p>
+</li>
 </ul>
 ]]></content>
     <summary type="html">
